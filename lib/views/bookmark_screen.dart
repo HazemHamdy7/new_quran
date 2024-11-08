@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:new_quran/cubit/surah_cubit/bookmark_cubit.dart';
 import 'package:new_quran/model/bookmark.dart';
-import 'package:new_quran/views/surah_detail_screen.dart';
 
 class BookmarkScreen extends StatelessWidget {
   const BookmarkScreen({super.key});

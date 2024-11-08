@@ -1,13 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:new_quran/constants/constants.dart';
 import 'package:new_quran/cubit/surah_cubit/surah_cubit.dart';
 import 'package:new_quran/model/quran_responese.dart';
+import 'package:new_quran/views/surah_builder.dart';
 import 'package:new_quran/views/surah_detail_screen.dart';
 import 'package:new_quran/widget/arabic_surah_number.dart';
 import 'package:new_quran/widget/custom_appbar.dart';
 
 class SurahListPage extends StatelessWidget {
+  const SurahListPage({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -37,7 +39,7 @@ class SurahListPage extends StatelessWidget {
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           ArabicSurahNumber(i: index),
-                          Text(textAlign: TextAlign.end, '${surah.name}'),
+                          Text(textAlign: TextAlign.end, surah.name),
                         ],
                       ),
                       subtitle: Text(
@@ -49,6 +51,7 @@ class SurahListPage extends StatelessWidget {
                           MaterialPageRoute(
                               builder: (context) => SurahDetailScreen(
                                     surahNumber: index + 1,
+                                    initialAyahNumber: index,
                                   )),
                         );
                       },
