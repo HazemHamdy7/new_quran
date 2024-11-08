@@ -40,6 +40,9 @@ dependencies:
   google_fonts: ^6.2.1
   flutter_svg: ^2.0.10+1
   shared_preferences: ^2.3.2
+  scrollable_positioned_list: ^0.3.8
+  share_plus: ^10.1.1
+  url_launcher: ^6.3.1
 
 dev_dependencies:
   flutter_test:
@@ -78,10 +81,13 @@ flutter:
   # "family" key with the font family name, and a "fonts" key with a
   # list giving the asset and other descriptors for the font. For
   # example:
-  # fonts:
-  #   - family: Schyler
-  #     fonts:
-  #       - asset: fonts/Schyler-Regular.ttf
+  fonts:
+    - family: quran
+      fonts:
+        - asset: assets/fonts/HafsSmart_08.ttf
+    - family: me_quran
+      fonts:
+        - asset: assets/fonts/me_quran.ttf
   #       - asset: fonts/Schyler-Italic.ttf
   #         style: italic
   #   - family: Trajan Pro

@@ -1,15 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:new_quran/constants/constants.dart';
 import 'package:new_quran/cubit/surah_cubit/surah_cubit.dart';
 import 'package:new_quran/model/quran_responese.dart';
 import 'package:new_quran/views/surah_detail_screen.dart';
+import 'package:new_quran/widget/arabic_surah_number.dart';
 import 'package:new_quran/widget/custom_appbar.dart';
 
 class SurahListPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: customAppBar(onPressed: () {}),
+      appBar: customAppBar(context),
       body: BlocProvider(
         create: (context) => SurahCubit()..fetchSurahs(),
         child: BlocBuilder<SurahCubit, List<Surah>>(
@@ -31,9 +33,13 @@ class SurahListPage extends StatelessWidget {
                             color: Colors.grey,
                             width: 0.5,
                           )),
-                      title: Text(
-                          textAlign: TextAlign.end,
-                          ' ${surah.number} - ${surah.name}'),
+                      title: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          ArabicSurahNumber(i: index),
+                          Text(textAlign: TextAlign.end, '${surah.name}'),
+                        ],
+                      ),
                       subtitle: Text(
                           textAlign: TextAlign.end,
                           '${surah.revelationType} - أية: ${surah.ayahsCount}'),
@@ -41,10 +47,9 @@ class SurahListPage extends StatelessWidget {
                         Navigator.push(
                           context,
                           MaterialPageRoute(
-                            builder: (context) => SurahDetailScreen(
-                              surahNumber: surah.number,
-                            ),
-                          ),
+                              builder: (context) => SurahDetailScreen(
+                                    surahNumber: index + 1,
+                                  )),
                         );
                       },
                     ),

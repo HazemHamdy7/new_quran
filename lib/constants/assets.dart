@@ -6,9 +6,9 @@ class Assets {
   /// assets/image/888-02.png
   static const String image88802 = "assets/image/888-02.png";
 
-  /// Assets for imageBasmala
-  /// assets/image/Basmala.png
   static const String imageBasmala = "assets/image/Basmala.png";
+
+  static const String farem = "assets/image/farem.jpg";
 
   /// Assets for imageBeckgroundimage
   /// assets/image/beckgroundimage.png

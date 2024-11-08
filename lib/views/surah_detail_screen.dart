@@ -4,7 +4,7 @@ import 'package:flutter_svg/svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:new_quran/constants/assets.dart';
 import 'package:new_quran/cubit/surah_cubit/bookmark_cubit.dart';
-import 'package:new_quran/cubit/surah_cubit/surah_detail_cubit%20.dart';
+import 'package:new_quran/cubit/surah_cubit/surah_detail_cubit.dart';
 import 'package:new_quran/model/bookmark.dart';
 import 'package:new_quran/model/surah_detail.dart';
 import 'package:new_quran/views/bookmark_screen.dart';
@@ -61,12 +61,7 @@ class _SurahDetailScreenState extends State<SurahDetailScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
-      appBar: customAppBar(onPressed: () {
-        Navigator.push(
-          context,
-          MaterialPageRoute(builder: (context) => const BookmarkScreen()),
-        );
-      }),
+      appBar: customAppBar(context),
       body: Container(
         decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(8.0),

@@ -5,11 +5,12 @@ import 'package:new_quran/model/bookmark.dart';
 import 'package:new_quran/views/surah_detail_screen.dart';
 
 class BookmarkScreen extends StatelessWidget {
-  const BookmarkScreen({Key? key}) : super(key: key);
+  const BookmarkScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.white,
       appBar: AppBar(
         title: const Text("Bookmarks"),
       ),
@@ -47,12 +48,7 @@ class BookmarkScreen extends StatelessWidget {
                   onTap: () {
                     Navigator.push(
                       context,
-                      MaterialPageRoute(
-                        builder: (context) => SurahDetailScreen(
-                          surahNumber: bookmark.surahNumber,
-                          initialAyahNumber: bookmark.ayahNumber,
-                        ),
-                      ),
+                      MaterialPageRoute(builder: (context) => Text('data')),
                     );
                   },
                   trailing: IconButton(

@@ -1,7 +1,6 @@
-import 'dart:developer';
 
-import 'package:bloc/bloc.dart';
 import 'package:dio/dio.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:new_quran/model/quran_responese.dart';
 import 'quran_state.dart';
 

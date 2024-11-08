@@ -2,9 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:new_quran/constants/app_colors.dart';
 import 'package:new_quran/constants/assets.dart';
+import 'package:new_quran/views/setting.dart';
 import 'package:new_quran/widget/custom_text.dart';
 
-AppBar customAppBar({required VoidCallback? onPressed}) => AppBar(
+AppBar customAppBar(BuildContext context) => AppBar(
       centerTitle: true,
       backgroundColor: AppColors.background.withOpacity(0.7),
       automaticallyImplyLeading: false,
@@ -14,7 +15,10 @@ AppBar customAppBar({required VoidCallback? onPressed}) => AppBar(
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           IconButton(
-            onPressed: () {},
+            onPressed: () {
+              Navigator.of(context).push(
+                  MaterialPageRoute(builder: (context) => const Settings()));
+            },
             icon: SvgPicture.asset(Assets.svgsMenuIcon),
             color: Colors.white,
           ),
@@ -24,7 +28,7 @@ AppBar customAppBar({required VoidCallback? onPressed}) => AppBar(
               fontWeight: FontWeight.bold,
               color: Colors.white),
           IconButton(
-            onPressed: onPressed,
+            onPressed: () {},
             icon: const Icon(Icons.bookmarks),
             color: Colors.white,
             isSelected: true,
