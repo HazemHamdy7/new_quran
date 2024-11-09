@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:new_quran/cubit/surah_cubit/bookmark_cubit.dart';
+import 'package:new_quran/helper/to_arabic.dart';
 import 'package:new_quran/model/bookmark.dart';
+import 'package:new_quran/views/surah_detail_screen.dart';
 
 class BookmarkScreen extends StatelessWidget {
   const BookmarkScreen({super.key});
@@ -11,12 +13,12 @@ class BookmarkScreen extends StatelessWidget {
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
-        title: const Text("Bookmarks"),
+        title: const Text("ألاشارات المرجعية"),
       ),
       body: BlocBuilder<BookmarkCubit, List<Bookmark>>(
         builder: (context, bookmarks) {
           if (bookmarks.isEmpty) {
-            return const Center(child: Text("No bookmarks yet."));
+            return const Center(child: Text("لا يوجد اشارات مرجعية"));
           }
           return ListView.builder(
             reverse: true,
@@ -37,7 +39,7 @@ class BookmarkScreen extends StatelessWidget {
                     ),
                   ),
                   title: Text(
-                    "${bookmark.surahName} - Ayah ${bookmark.ayahNumber}",
+                    "${bookmark.surahName} - أيــة ${bookmark.ayahNumber.toArabicNumbers}",
                   ),
                   subtitle: Text(
                     bookmark.ayahText,
@@ -45,9 +47,15 @@ class BookmarkScreen extends StatelessWidget {
                     maxLines: 1,
                   ),
                   onTap: () {
+                    // Navigate to SurahDetailScreen for the specific ayah
                     Navigator.push(
                       context,
-                      MaterialPageRoute(builder: (context) => Text('data')),
+                      MaterialPageRoute(
+                        builder: (context) => SurahDetailScreen(
+                          surahNumber: bookmark.surahNumber,
+                          initialAyahNumber: bookmark.ayahNumber,
+                        ),
+                      ),
                     );
                   },
                   trailing: IconButton(
@@ -55,7 +63,15 @@ class BookmarkScreen extends StatelessWidget {
                     onPressed: () {
                       context.read<BookmarkCubit>().removeBookmark(bookmark);
                       ScaffoldMessenger.of(context).showSnackBar(
-                        const SnackBar(content: Text('Bookmark removed!')),
+                        const SnackBar(
+                            backgroundColor: Colors.indigoAccent,
+                            content: Text(
+                              'تم حذف الذكرة',
+                              style: TextStyle(
+                                color: Colors.white,
+                                fontSize: 16,
+                              ),
+                            )),
                       );
                     },
                   ),

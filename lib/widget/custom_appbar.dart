@@ -25,15 +25,16 @@ AppBar customAppBar(BuildContext context) => AppBar(
           CustomText(
               text: "القران الكريم",
               fontSize: 28,
+              
               fontWeight: FontWeight.bold,
               color: Colors.white),
-          IconButton(
-            onPressed: () {},
-            icon: const Icon(Icons.bookmarks),
-            color: Colors.white,
-            isSelected: true,
-            style: IconButton.styleFrom(),
-          ),
+          // IconButton(
+          //   onPressed: () {},
+          //   icon: const Icon(Icons.bookmarks),
+          //   color: Colors.white,
+          //   isSelected: true,
+          //   style: IconButton.styleFrom(),
+          // ),
         ],
       ),
     );

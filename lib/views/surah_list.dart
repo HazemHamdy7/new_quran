@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:new_quran/cubit/surah_cubit/surah_cubit.dart';
 import 'package:new_quran/model/quran_responese.dart';
-import 'package:new_quran/views/surah_builder.dart';
 import 'package:new_quran/views/surah_detail_screen.dart';
 import 'package:new_quran/widget/arabic_surah_number.dart';
 import 'package:new_quran/widget/custom_appbar.dart';
