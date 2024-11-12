@@ -15,8 +15,7 @@ class MyApp extends StatelessWidget {
     return MultiBlocProvider(
       providers: [
         BlocProvider(create: (context) => BookmarkCubit()),
-        // Add other providers here if necessary
-      ],
+       ],
       child: MaterialApp(
         title: 'Flutter Demo',
         theme: ThemeData(

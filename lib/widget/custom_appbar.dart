@@ -16,8 +16,8 @@ AppBar customAppBar(BuildContext context) => AppBar(
         children: [
           IconButton(
             onPressed: () {
-              Navigator.of(context).push(
-                  MaterialPageRoute(builder: (context) => const Settings()));
+              // Navigator.of(context).push(
+              //     MaterialPageRoute(builder: (context) => const Settings()));
             },
             icon: SvgPicture.asset(Assets.svgsMenuIcon),
             color: Colors.white,
@@ -25,7 +25,6 @@ AppBar customAppBar(BuildContext context) => AppBar(
           CustomText(
               text: "القران الكريم",
               fontSize: 28,
-              
               fontWeight: FontWeight.bold,
               color: Colors.white),
           // IconButton(
